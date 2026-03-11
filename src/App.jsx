@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Budget from './components/Budget';
 import Remaining from './components/Remaining';
 import ExpenseTotal from './components/ExpenseTotal';
+import SearchExpense from './components/SearchExpense';
 import ExpenseList from './components/ExpenseList';
 import AddExpenseForm from './components/AddExpenseForm';
 
@@ -20,6 +21,12 @@ const App = () => {
                 </div>
                 <div className='col-sm'>
                     <ExpenseTotal />
+                </div>
+            </div>
+
+            <div className='row mt-3'>
+                <div className='col-sm'>
+                    <SearchExpense />
                 </div>
             </div>
 

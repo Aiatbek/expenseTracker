@@ -2,9 +2,13 @@ import React from 'react';
 import { useExpenseContext } from '../Context';
 
 const Remaining = () => {
-    const { countExpenses, budget } = useExpenseContext();
+    const { expenses, budget } = useExpenseContext();
 
-        const remaining = budget - countExpenses()
+    const totalSum = expenses.reduce((total, item) => {
+        return (total = total + item.cost);
+    }, 0);
+
+    const remaining = budget - totalSum
 
 
     return (

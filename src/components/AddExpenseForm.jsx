@@ -1,14 +1,20 @@
 import React from 'react';
 import { useExpenseContext } from '../Context';
+import  ACTIONS  from '../actions.js';
 
 const AddExpenseForm = () => {
     const [expenseName, setExpenseName] = React.useState('');
     const [expenseCost, setExpenseCost] = React.useState('');
-    const { addExpense } = useExpenseContext();
+    const { dispatch } = useExpenseContext();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addExpense({ id: Date.now(), name: expenseName, cost: parseFloat(expenseCost) });
+        const expense = { id: Date.now(), name: expenseName, cost: parseFloat(expenseCost) }
+        dispatch({
+            type: ACTIONS.ADD,
+            payload: expense
+        });
+
         setExpenseName('');
         setExpenseCost('');
     };

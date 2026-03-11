@@ -2,16 +2,16 @@ import React from 'react';
 import { useExpenseContext } from '../Context';
 
 const ExpenseTotal = () => {
-    const {countExpenses} = useExpenseContext()
+    const {expenses} = useExpenseContext()
 
 
-    const total = countExpenses()// Actually I don't need useEffect because react will rerender component in these scenarios:
-    //if props changed, if context changed, or parent component rerendered.
-
+    const totalSum = expenses.reduce((total, item) => {
+        return (total += item.cost);
+    }, 0);
 
     return (
         <div className='alert alert-primary'>
-            <span>Spent so far: £{total.toFixed(2)}</span>
+            <span>Spent so far: £{totalSum.toFixed(2)}</span>
         </div>
     );
 };
