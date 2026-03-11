@@ -9,7 +9,6 @@ export function ExpenseProvider({children}){
 
     const [expenses, setExpenses] = useState([])
     const [budget, setBudget] = useState(2000)
-    const [total, setTotal] = useState(0)
 
     const addExpense = (expense) =>{
         setExpenses(prev => [...prev, expense])
@@ -24,7 +23,6 @@ export function ExpenseProvider({children}){
         expenses.forEach((expense) => {
             total += expense.cost
         });
-        setTotal(total)
         return total
     }
 
@@ -35,8 +33,6 @@ export function ExpenseProvider({children}){
         budget,
         setBudget, 
         countExpenses,
-        total, 
-        setTotal
     }
 
     return <ExpenseContext.Provider value={value}>

@@ -7,7 +7,6 @@ const Budget = () => {
 
     const handleSave = () => {
         setIsEditing(false)
-        setBudget(Number(budget))
     }
     return (
         <div className='alert alert-secondary'>

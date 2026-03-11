@@ -1,17 +1,12 @@
-import React, { useEffect} from 'react';
+import React from 'react';
 import { useExpenseContext } from '../Context';
 
 const ExpenseTotal = () => {
-    const {countExpenses, expenses, total} = useExpenseContext()
+    const {countExpenses} = useExpenseContext()
 
 
-    useEffect(()=>{
-        countExpenses()
-    }, [expenses])
- //i can rerender total here using useEffect which listens to expenses list change
-
-//OR I can save total state in context and calculate it there and update it calling fn from context inisde ExpenseForm 
-// when I add or delete expense and then just use total in Remaining component without useEffect.
+    const total = countExpenses()// Actually I don't need useEffect because react will rerender component in these scenarios:
+    //if props changed, if context changed, or parent component rerendered.
 
 
     return (
